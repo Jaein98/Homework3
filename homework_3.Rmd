@@ -9,14 +9,43 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+
+```{r}
+library(ggplot2)
+library(tidymodels)
+library(ISLR)
+install.packages("ISLR2")
+library(ISLR2)
+install.packages("poissonreg")
+library(poissonreg)
+library(corrr)
+library(klaR)
+tidymodels_prefer()
+set.seed(2225)
+setwd("~/Downloads/homework-3 2")
+
+
+```
+
+
+
+
+
+```{r}
+
+
+
+
+```
+
 ### Question 1
 
 Split the data, stratifying on the outcome variable, `survived.`  You should choose the proportions to split the data into. Verify that the training and testing data sets have the appropriate number of observations. Take a look at the training data and note any potential issues, such as missing data.
 
 Why is it a good idea to use stratified sampling for this data?
 
-
 ```{r}
+titanic <- read.csv("titanic.csv")
 
 ```
 

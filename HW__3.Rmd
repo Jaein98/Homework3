@@ -72,7 +72,7 @@ ggplot(titanic_train,aes(x=survived)) + geom_bar()
 Using the **training** data set, create a correlation matrix of all continuous variables. Create a visualization of the matrix, and describe any patterns you see. Are any predictors correlated with each other? Which ones, and in which direction?
 
 ```{r}
-
+aa
 ```
 
 

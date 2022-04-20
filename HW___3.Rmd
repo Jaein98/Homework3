@@ -255,26 +255,31 @@ Which model achieved the highest accuracy on the training data?
 
 Logistic regression achieved the highest accuracy on the training data.
 ```{r}
+
+
+
+bound_train_data = bind_cols(predict(log_fit, new_data = titanic_train, type = "class"),
+                             predict(lda_fit, new_data = titanic_train, type = "class"),
+                             predict(qda_fit, new_data = titanic_train, type = "class"),
+                             predict(nb_fit, new_data = titanic_train, type = "class"),
+                             titanic_train$survived)
+
+colnames(bound_train_data) = c("Log fit", "LDA fit", "QDA fit", "NB fit", "True")
+
 log_reg_acc <- augment(log_fit, new_data = titanic_train) %>%
   accuracy(truth = survived, estimate = .pred_class)
 
-lda_acc <- augment(lda_fit, new_data = titanic_train) %>%
-  accuracy(truth = survived, estimate = .pred_class)
-
-qda_acc <- augment(qda_fit, new_data = titanic_train) %>%
-  accuracy(truth = survived, estimate = .pred_class)
-
-nb_acc <- augment(nb_fit, new_data = titanic_train) %>%
-  accuracy(truth = survived, estimate = .pred_class)
+log_reg_acc
 
 
 
-accuracies <- c(log_reg_acc$.estimate, lda_acc$.estimate, 
-                nb_acc$.estimate, qda_acc$.estimate)
-models <- c("Logistic Regression", "LDA", "Naive Bayes", "QDA")
-results <- tibble(accuracies = accuracies, models = models)
-results %>% 
-  arrange(-accuracies)
+
+
+
+
+
+
+
 
 
 ```

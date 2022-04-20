@@ -271,9 +271,20 @@ log_reg_acc <- augment(log_fit, new_data = titanic_train) %>%
 
 log_reg_acc
 
+lda_reg_acc <- augment(lda_fit, new_data = titanic_train) %>%
+  accuracy(truth = survived, estimate = .pred_class)
 
+lda_reg_acc
 
+qda_reg_acc <- augment(qda_fit, new_data = titanic_train) %>%
+  accuracy(truth = survived, estimate = .pred_class)
 
+qda_reg_acc
+
+nb_reg_acc <- augment(nb_fit, new_data = titanic_train) %>%
+  accuracy(truth = survived, estimate = .pred_class)
+
+nb_reg_acc
 
 
 
